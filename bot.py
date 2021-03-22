@@ -25,7 +25,7 @@ try:
 except Exception as e:
     print(f"ERROR\n{str(e)}")
 
-async def BotzHub():
+async def NexaBotsUpdates():
     async with user_bot:
         while True:
             print("[INFO] starting to check uptime..")
@@ -64,4 +64,4 @@ async def BotzHub():
             print("Sleeping for 2 hours.")
             await asyncio.sleep(10 * 60 * 60)
 
-user_bot.loop.run_until_complete(BotzHub())
+user_bot.loop.run_until_complete(NexaBotsUpdates())
