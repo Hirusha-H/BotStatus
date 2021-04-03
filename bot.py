@@ -31,7 +31,7 @@ async def NexaBotsUpdates():
             print("[INFO] starting to check uptime..")
             await user_bot.edit_message(int(chnl_id), msg_id, "**@NexaBotsUpdates Bots Uptime Status 😌️.**\n\n`Performing a periodic check...`")
             c = 0
-            edit_text = "**@NexaBotsUpdates Bots Uptime Status 😌️.**\n\n"
+            edit_text = "**Alive Status Of Bots!**\n\n"
             for bot in bots:
                 print(f"[INFO] checking @{bot}")
                 snt = await user_bot.send_message(bot, "/start")
@@ -50,18 +50,18 @@ async def NexaBotsUpdates():
                 msg = history.messages[0].id
                 if snt.id == msg:
                     print(f"@{bot} is down.")
-                    edit_text += f"@{bot} - Down ❌\n"
+                    edit_text += f"@{bot} - `Dead ❌`\n"
                 elif snt.id + 1 == msg:
-                    edit_text += f"@{bot} - Up ✅\n"
+                    edit_text += f"@{bot} - `Alive ✅`\n"
                 await user_bot.send_read_acknowledge(bot)
                 c += 1
                 await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             utc_now = datetime.datetime.utcnow()
             ist_now = utc_now + datetime.timedelta(minutes=30, hours=5)
-            edit_text +=f"\n**Last Checked:** \n`{str(utc_now)}`\n`{ist_now} IST`\n\n__ALl bots status are auto-updated every 2 hours__"
+            edit_text +=f"\n**Last Checked:** \n`{str(utc_now)}`\n`{ist_now} IST`\n\n__ALl bots status are auto-updated every 1 hour__"
             await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             print(f"Checks since last restart - {c}")
-            print("Sleeping for 2 hours.")
-            await asyncio.sleep(10 * 60 * 60)
+            print("Sleeping for 1 hour.")
+            await asyncio.sleep(1 * 60 * 60)
 
 user_bot.loop.run_until_complete(NexaBotsUpdates())
