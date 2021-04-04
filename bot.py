@@ -58,10 +58,10 @@ async def NexaBotsUpdates():
                 await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             utc_now = datetime.datetime.utcnow()
             ist_now = utc_now + datetime.timedelta(minutes=30, hours=5)
-            edit_text +=f"\n**Last Checked:** \n`{str(utc_now)}`\n`{ist_now} IST`\n\n__ALl bots status are auto-updated every 1 hour__"
+            edit_text +=f"\n**Last Checked:** \n`{str(utc_now)}`\n`{ist_now} IST`\n\n__All bots status are auto-updated every 1 hour__"
             await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             print(f"Checks since last restart - {c}")
             print("Sleeping for 1 hour.")
-            await asyncio.sleep(0.15 * 60 * 60)
+            await asyncio.sleep(0.2 * 60 * 60)
 
 user_bot.loop.run_until_complete(NexaBotsUpdates())
