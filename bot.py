@@ -62,6 +62,6 @@ async def NexaBotsUpdates():
             await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
             print(f"Checks since last restart - {c}")
             print("Sleeping for 1 hour.")
-            await asyncio.sleep(1 * 60 * 60)
+            await asyncio.sleep(0.15 * 60 * 60)
 
 user_bot.loop.run_until_complete(NexaBotsUpdates())
